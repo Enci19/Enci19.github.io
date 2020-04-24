@@ -1,0 +1,868 @@
+*, *::after, *::before {
+box-sizing: border-box;
+}
+
+
+.page-title {
+  font-family: Inter;
+  font-size: 3rem;
+  font-weight: bold;
+  padding: 40px 20px 10px 40px;
+  text-align: center;
+}
+
+.mega-container {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.buttons {
+  padding: 20px 20px 20px 20px;
+  border: 2px solid lightgrey;
+  border-radius: 25px;
+}
+
+.btn-txt {
+  font-family: Inter;
+  font-size: 12px;
+  padding-left: 13px;
+  width: 108px;
+  color: rgba(32, 32, 32);
+  background:white;
+  margin-top: -30px;
+  margin-left: 24px;
+  margin-bottom: 15px;
+}
+
+.btn-txt-gaps {
+  color: rgba(32, 32, 32);
+  font-family: Inter;
+  font-size: 12px;
+  padding-left: 13px;
+  width: 60px;
+  background:white;
+  margin-top: -30px;
+  margin-left: 24px;
+  margin-bottom: 15px;
+}
+
+.btn-container {
+  display: inline-flex;
+  margin: 0 8px 0 8px;
+}
+
+.buttons > * {
+  margin-right: 4px;
+  margin-left: 4px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 108px;
+  height: 52px;
+  padding: 16px 16px;
+}
+
+
+ .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(237, 237, 237);
+  -webkit-transition: .4s;
+  border-radius: 12px;
+  transition: .4s;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 108px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 44px;
+  width: 44px;
+  left: 4px;
+  border-radius: 8px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+
+.slider:after {
+  font-family: Inter;
+  font-weight: medium;
+  color: rgba(32, 32, 32, 0.5);
+  content:'OFF';
+  position:relative;
+  padding:10px;
+  padding-left:62px;
+}
+
+input:checked + .slider:after {
+  font-family: Inter;
+  font-weight: medium;
+  color: white;
+  content: 'ON';
+  padding-left: 18px;
+}
+
+input:checked + .slider {
+  background-color: rgba(165, 165, 165);
+  outline: 0;
+}
+
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+  outline:0;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(56px);
+  -ms-transform: translateX(56px);
+  transform: translateX(56px);
+
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  border-radius: 16px;
+  z-index: 10;
+  background-color: white;
+  width= 500px;
+  max-width: 80%;
+  max-height: 80%;
+  overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+  padding: 30px 40px 5px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-item: center;
+}
+
+.modal-sub-header {
+  padding: 10px 40px 15px 40px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: Inter;
+}
+
+.modal-status-container {
+  margin: 10px 40px 20px 40px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid black;
+}
+
+.modal-status-blue {
+  padding: 4px 6px 4px 6px;
+  display: inline;
+  border: 2px solid black;
+  border-color: #538dad;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: Inter;
+  color: #538dad;
+  border-radius: 8px;
+}
+
+.modal-status-red {
+  padding: 4px 6px 4px 6px;
+  display: inline;
+  border: 2px solid black;
+  border-color: #a85269;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: Inter;
+  color: #a85269;
+  border-radius: 8px;
+}
+
+.modal-status-yellow {
+  padding: 4px 6px 4px 6px;
+  display: inline;
+  border: 2px solid black;
+  border-color: #b5a45b;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: Inter;
+  color: #b5a45b;
+  border-radius: 8px;
+}
+
+.modal-status-green {
+  padding: 4px 6px 4px 6px;
+  display: inline;
+  border: 2px solid black;
+  border-color: #34a585;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: Inter;
+  color: #34a585;
+  border-radius: 8px;
+}
+
+.modal-header .title {
+  font-size: 2.4rem;
+  font-weight: bold;
+  font-family: Inter;
+}
+
+.modal-header .close-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 2.4rem;
+  font-weight: bold;
+}
+
+.text {
+  padding: 10px 40px 40px;
+  font-size: 1.3rem;
+  font-family: Inter;
+}
+
+#overlay {
+  position: fixed;
+  opacity: 0;
+  background-color: rgba(0,0,0,.5);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+#body.inactive {
+  overflow-y: hidden;
+}
+
+#commercially-available-dots.active {
+  position: absolute;
+  visibility: hidden;
+}
+
+#commercially-available-dots {
+  visibility: visible;
+  opacity: 1;
+}
+
+#research-dots.active {
+  position: absolute;
+  visibility: hidden;
+}
+
+#research-dots {
+  visibility: visible;
+  opacity: 1;
+}
+
+#cross-discipline-dots {
+  position: absolute;
+  visibility: hidden;
+}
+
+#cross-discipline-dots.active  {
+  visibility: visible;
+  opacity: 1;
+}
+
+#Gaps {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+}
+
+#Gaps.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.dot {
+  cursor: pointer;
+  position: absolute;
+  display:block;
+}
+
+.dot:hover {
+  transform: scale(1.15);
+  transition-duration: 0.10s;
+  transform-origin: center;
+  transform-box: fill-box;
+  cursor: pointer;
+}
+
+.dot-1 {
+  cursor: pointer;
+  position: absolute;
+  display:block;
+}
+
+.dot-1:hover {
+  transform: scale(1.15);
+  transition-duration: 0.15s;
+  transform-origin: center;
+  transform-box: fill-box;
+  cursor: pointer;
+}
+
+.dot-1 {
+  cursor: pointer;
+  position: absolute;
+  display:block;
+}
+
+.dot-1:hover {
+  transform: scale(1.15);
+  transition-duration: 0.15s;
+  transform-origin: center;
+  transform-box: fill-box;
+  cursor: pointer;
+}
+
+.dot-2 {
+  cursor: pointer;
+  position: absolute;
+  display:block;
+}
+
+.dot-2:hover {
+  transform: scale(1.15);
+  transition-duration: 0.15s;
+  transform-origin: center;
+  transform-box: fill-box;
+  cursor: pointer;
+}
+
+.dot-3 {
+  cursor: pointer;
+  position: absolute;
+  display:block;
+}
+
+.dot-3:hover {
+  transform: scale(1.15);
+  transition-duration: 0.15s;
+  transform-origin: center;
+  transform-box: fill-box;
+  cursor: pointer;
+}
+
+.dot-4 {
+  cursor: pointer;
+  position: absolute;
+  display:block;
+}
+
+.dot-4:hover {
+  transform: scale(1.15);
+  transition-duration: 0.15s;
+  transform-origin: center;
+  transform-box: fill-box;
+  cursor: pointer;
+}
+
+.dot-5 {
+  cursor: pointer;
+  position: absolute;
+  display:block;
+}
+
+.dot-5:hover {
+  transform: scale(1.15);
+  transition-duration: 0.15s;
+  transform-origin: center;
+  transform-box: fill-box;
+  cursor: pointer;
+}
+
+.dot-6 {
+  cursor: pointer;
+  position: absolute;
+  display:block;
+}
+
+.dot-6:hover {
+  transform: scale(1.15);
+  transition-duration: 0.15s;
+  transform-origin: center;
+  transform-box: fill-box;
+  cursor: pointer;
+}
+
+.dot-7 {
+  cursor: pointer;
+  position: absolute;
+  display:block;
+}
+
+.dot-7:hover {
+  transform: scale(1.15);
+  transition-duration: 0.15s;
+  transform-origin: center;
+  transform-box: fill-box;
+  cursor: pointer;
+}
+
+.dot-8 {
+  cursor: pointer;
+  position: absolute;
+  display:block;
+}
+
+.dot-8:hover {
+  transform: scale(1.15);
+  transition-duration: 0.15s;
+  transform-origin: center;
+  transform-box: fill-box;
+  cursor: pointer;
+}
+
+.dot-9 {
+  cursor: pointer;
+  position: absolute;
+  display:block;
+}
+
+.dot-9:hover {
+  transform: scale(1.15);
+  transition-duration: 0.15s;
+  transform-origin: center;
+  transform-box: fill-box;
+  cursor: pointer;
+}
+
+.dot-10 {
+  cursor: pointer;
+  position: absolute;
+  display:block;
+}
+
+.dot-10:hover {
+  transform: scale(1.15);
+  transition-duration: 0.15s;
+  transform-origin: center;
+  transform-box: fill-box;
+  cursor: pointer;
+}
+
+.dot-11 {
+  cursor: pointer;
+  position: absolute;
+  display:block;
+}
+
+.dot-11:hover {
+  transform: scale(1.15);
+  transition-duration: 0.15s;
+  transform-origin: center;
+  transform-box: fill-box;
+  cursor: pointer;
+}
+
+.dot-12 {
+  cursor: pointer;
+  position: absolute;
+  display:block;
+}
+
+.dot-12:hover {
+  transform: scale(1.15);
+  transition-duration: 0.15s;
+  transform-origin: center;
+  transform-box: fill-box;
+  cursor: pointer;
+}
+
+.dot-13 {
+  cursor: pointer;
+  position: absolute;
+  display:block;
+}
+
+.dot-13:hover {
+  transform: scale(1.15);
+  transition-duration: 0.15s;
+  transform-origin: center;
+  transform-box: fill-box;
+  cursor: pointer;
+}
+
+.dot-14 {
+  cursor: pointer;
+  position: absolute;
+  display:block;
+}
+
+.dot-14:hover {
+  transform: scale(1.15);
+  transition-duration: 0.15s;
+  transform-origin: center;
+  transform-box: fill-box;
+  cursor: pointer;
+}
+
+.dot-15 {
+  cursor: pointer;
+  position: absolute;
+  display:block;
+}
+
+.dot-15:hover {
+  transform: scale(1.15);
+  transition-duration: 0.15s;
+  transform-origin: center;
+  transform-box: fill-box;
+  cursor: pointer;
+}
+
+.dot-16 {
+  cursor: pointer;
+  position: absolute;
+  display:block;
+}
+
+.dot-16:hover {
+  transform: scale(1.15);
+  transition-duration: 0.15s;
+  transform-origin: center;
+  transform-box: fill-box;
+  cursor: pointer;
+}
+
+.dot-17 {
+  cursor: pointer;
+  position: absolute;
+  display:block;
+}
+
+.dot-17:hover {
+  transform: scale(1.15);
+  transition-duration: 0.15s;
+  transform-origin: center;
+  transform-box: fill-box;
+  cursor: pointer;
+}
+
+.dot-18 {
+  cursor: pointer;
+  position: absolute;
+  display:block;
+}
+
+.dot-18:hover {
+  transform: scale(1.15);
+  transition-duration: 0.15s;
+  transform-origin: center;
+  transform-box: fill-box;
+  cursor: pointer;
+}
+
+.dot-19 {
+  cursor: pointer;
+  position: absolute;
+  display:block;
+}
+
+.dot-19:hover {
+  transform: scale(1.15);
+  transition-duration: 0.15s;
+  transform-origin: center;
+  transform-box: fill-box;
+  cursor: pointer;
+}
+
+.dot-20 {
+  cursor: pointer;
+  position: absolute;
+  display:block;
+}
+
+.dot-20:hover {
+  transform: scale(1.15);
+  transition-duration: 0.15s;
+  transform-origin: center;
+  transform-box: fill-box;
+  cursor: pointer;
+}
+
+.dot-21 {
+  cursor: pointer;
+  position: absolute;
+  display:block;
+}
+
+.dot-21:hover {
+  transform: scale(1.15);
+  transition-duration: 0.15s;
+  transform-origin: center;
+  transform-box: fill-box;
+  cursor: pointer;
+}
+
+.dot-22 {
+  cursor: pointer;
+  position: absolute;
+  display:block;
+}
+
+.dot-22:hover {
+  transform: scale(1.15);
+  transition-duration: 0.15s;
+  transform-origin: center;
+  transform-box: fill-box;
+  cursor: pointer;
+}
+
+#Popover-1 {
+  display: none;
+}
+
+#Popover-2 {
+  display: none;
+}
+
+#Popover-3 {
+  display: none;
+}
+
+#Popover-4 {
+  display: none;
+}
+
+#Popover-5 {
+  display: none;
+}
+
+#Popover-6 {
+  display: none;
+}
+
+#Popover-7 {
+  display: none;
+}
+
+#Popover-8 {
+  display: none;
+}
+
+#Popover-9 {
+  display: none;
+}
+
+#Popover-10 {
+  display: none;
+}
+
+#Popover-11 {
+  display: none;
+}
+
+#Popover-12 {
+  display: none;
+}
+
+#Popover-13 {
+  display: none;
+}
+
+#Popover-14 {
+  display: none;
+}
+
+#Popover-15 {
+  display: none;
+}
+
+#Popover-16 {
+  display: none;
+}
+
+#Popover-17 {
+  display: none;
+}
+
+#Popover-18 {
+  display: none;
+}
+
+#Popover-19 {
+  display: none;
+}
+
+#Popover-20 {
+  display: none;
+}
+
+#Popover-21 {
+  display: none;
+}
+
+#Popover-22 {
+  display: none;
+}
+
+.dot-1:hover + #Popover-1 {
+  display: inline-block;
+}
+
+.dot-2:hover + #Popover-2 {
+  display: inline-block;
+}
+
+.dot-3:hover + #Popover-3 {
+  display: inline-block;
+}
+
+.dot-4:hover + #Popover-4 {
+  display: inline-block;
+}
+
+.dot-5:hover + #Popover-5 {
+  display: inline-block;
+}
+
+.dot-6:hover + #Popover-6 {
+  display: inline-block;
+}
+
+.dot-7:hover + #Popover-7 {
+  display: inline-block;
+}
+
+.dot-8:hover + #Popover-8 {
+  display: inline-block;
+}
+
+.dot-9:hover + #Popover-9 {
+  display: inline-block;
+}
+
+.dot-10:hover + #Popover-10 {
+  display: inline-block;
+}
+
+.dot-11:hover + #Popover-11 {
+  display: inline-block;
+}
+
+.dot-12:hover + #Popover-12 {
+  display: inline-block;
+}
+
+.dot-13:hover + #Popover-13 {
+  display: inline-block;
+}
+
+.dot-14:hover + #Popover-14 {
+  display: inline-block;
+}
+
+.dot-15:hover + #Popover-15 {
+  display: inline-block;
+}
+
+.dot-16:hover + #Popover-16 {
+  display: inline-block;
+}
+
+.dot-17:hover + #Popover-17 {
+  display: inline-block;
+}
+
+.dot-18:hover + #Popover-18 {
+  display: inline-block;
+}
+
+.dot-19:hover + #Popover-19 {
+  display: inline-block;
+}
+
+.dot-20:hover + #Popover-20 {
+  display: inline-block;
+}
+
+.dot-21:hover + #Popover-21 {
+  display: inline-block;
+}
+
+.dot-22:hover + #Popover-22 {
+  display: inline-block;
+}
+
+.nav-btn {
+  cursor: pointer;
+  /* background: #ededed;
+  color: #2d2d2d; */
+  background-color: rgba(237, 237, 237, 1);
+  border: none;
+  border-radius: 12px;
+  padding: 16px 16px;
+  font-family: Inter;
+  font-weight: medium;
+  color: rgba(32, 32, 32, 0.5);
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.nav-btn:hover {
+  background-color: #bababa;
+}
+
+.nav-btn:focus {
+  outline: 0;
+}
+
+.nav-btn:active {
+  background-color: rgba(125, 125, 125, 1);
+  color: rgba(32, 32, 32, 1);
+}
+
+.nav-btn.clicked {
+  /* background-color: rgba(165, 165, 165, 1); */
+  background-color: #538dad;
+  font-family: Inter;
+  font-weight: regular;
+  /* color: rgba(32, 32, 32, 1); */
+  color: white;
+}
+
+.nav-btn .clicked:hover {
+  background-color: #cecece;
+  color: rgba(32, 32, 32, 1);
+}
+
+.legend {
+  position: absolute;
+  z-index: -1
+}
